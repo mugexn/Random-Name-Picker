@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+}
+
+.container {
+    max-width: 900px;
+}
+
+.winner-display {
+    min-height: 200px;
+    font-size: 3rem;
+}
+
+.spinning-text {
+    animation: spin-pulse 0.2s infinite;
+}
+
+@keyframes spin-pulse {
+    0% { transform: scale(1); color: #ef4444; }
+    50% { transform: scale(1.05); color: #f97316; }
+    100% { transform: scale(1); color: #ef4444; }
+}
+
+@media (max-width: 640px) {
+    .winner-display {
+        font-size: 2rem;
+    }
+}

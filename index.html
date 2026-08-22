@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Name Picker</title>
+    <link rel="icon" type="image/x-icon" href="picker.ico">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <!-- External CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="container bg-white shadow-xl rounded-2xl p-6 md:p-10 w-full">
+      
+        <h1 class="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-8">
+            Random Name Picker
+        </h1>
+
+        <div class="mb-8">
+            <label for="names-input" class="block text-gray-700 text-lg font-semibold mb-2">
+                Enter names (one per line):
+            </label>
+            <textarea id="names-input" rows="8" class="w-full p-4 text-gray-800 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200" placeholder="e.g.&#10;Alice&#10;Bob&#10;Charlie"></textarea>
+        </div>
+        
+        <audio id="background-music" loop>
+            <source src="squid_game_2_merry_go.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <button id="pick-button" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold text-xl rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                Pick a Name!
+            </button>
+            <button id="reset-button" class="w-full sm:w-auto px-8 py-4 bg-gray-300 text-gray-800 font-bold rounded-xl shadow-md hover:bg-gray-400 transform hover:scale-105 transition-all duration-300">
+                Reset
+            </button>
+            <button id="music-toggle-button" class="w-full sm:w-auto px-8 py-4 bg-purple-500 text-white font-bold rounded-xl shadow-md hover:bg-purple-600 transform hover:scale-105 transition-all duration-300">
+                Play Music 🎵
+            </button>
+        </div>
+
+        <div class="flex items-center justify-center gap-2 mb-8">
+            <input type="number" id="timer-input" class="w-24 p-2 text-center text-gray-800 bg-gray-50 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-colors duration-200" placeholder="Seconds" min="1">
+            <button id="start-timer-button" class="px-6 py-2 bg-green-500 text-white font-bold rounded-xl shadow-md hover:bg-green-600 transition-all duration-300">
+                Start Timer
+            </button>
+            <div id="timer-display" class="font-bold text-2xl text-gray-800">0s</div>
+        </div>
+
+        <div id="winner-container" class="bg-blue-50 border border-blue-200 rounded-xl p-6 text-center shadow-inner">
+            <p class="text-blue-500 font-semibold text-xl mb-2">The lucky one is...</p>
+            <div id="winner-display" class="winner-display flex items-center justify-center font-extrabold text-gray-800">
+                Awaiting your names!
+            </div>
+            <p id="remaining-names" class="text-sm text-gray-500 mt-2">
+                <span id="remaining-count">0</span> names remaining.
+            </p>
+        </div>
+        
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Picked Names</h2>
+            <div id="picked-list-container" class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <ul id="picked-list" class="list-none space-y-2"></ul>
+                <p id="no-picked-names" class="text-gray-500 text-center">No names have been picked yet.</p>
+            </div>
+        </div>
+        
+        <footer class="mt-12">
+            <div class="text-center text-gray-500 text-sm">
+                MUGEXN @2025
+            </div>
+        </footer>
+    </div>
+
+    <!-- External JS script -->
+    <script src="script.js"></script>
+</body>
+</html>
